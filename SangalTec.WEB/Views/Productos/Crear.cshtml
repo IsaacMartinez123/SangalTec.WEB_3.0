@@ -1,0 +1,46 @@
+﻿@model SangalTec.Models.Entities.Producto;
+
+@{ Layout = null; }
+
+
+<form id="formulario" asp-action="Crear" enctype="multipart/form-data" autocomplete="on" onsubmit="return jQueryAjaxPost(this,'Crear producto', '¿Desea Crear el producto?');">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Nombre" class="crontrol-label"></label>
+        <input asp-for="Nombre" class="form-control" placeholder="Ingrese el nombre del producto" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Cantidad" class="crontrol-label"></label>
+        <input asp-for="Cantidad" class="form-control" placeholder="Ingrese la cantidad del producto" />
+        <span asp-validation-for="Cantidad" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Precio" class="crontrol-label"></label>
+        <input asp-for="Precio" class="form-control" placeholder="Ingrese el precio del producto" />
+        <span asp-validation-for="Precio" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CategoriaId" class="control-label"></label>
+        <select asp-items="@ViewBag.Categoria" asp-for="CategoriaId" class="form-control">
+            <option>--- Seleccione ---</option>
+        </select>
+        <span asp-validation-for="CategoriaId" class="text-danger"></span>
+    </div>
+    @*<div class="form-group">
+        <label asp-for="UrlImagen" class="crontrol-label"></label>
+        <input type="file" name="archivos" class="form-control" />
+        <span asp-validation-for="UrlImagen" class="text-danger"></span>
+    </div>*@
+    <div class="form-group ">
+        <div class="row">
+            <div class="col">
+                <button type="submit" class="btn btn-primary form-control" id="submit-all"> Crear</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script src="~/js/site.js"></script>
+
+@{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}

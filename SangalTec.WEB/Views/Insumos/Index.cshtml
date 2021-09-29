@@ -1,0 +1,69 @@
+﻿@model IEnumerable<SangalTec.Models.Entities.Insumo>
+
+@section Styles{ }
+
+
+
+<div class="content pt-5">
+    <div class="container-fluid ">
+        <div class="row  mb-5">
+            <div class="col-6">
+                <h2 class="text-primary">@ViewBag.Titulo</h2>
+            </div>
+            <div class="col-6 text-right">
+                <a onclick="mostrarModal('@Url.Action("Crear","Insumos",null,Context.Request.Scheme)','Crear insumo')" class="btn btn-success"> Crear nuevo insumo</a>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+
+            <table class="table table-striped" id="tabla">
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col">@Html.DisplayNameFor(model => model.InsumoId)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.Nombre)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.Estado)</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var insumo in Model)
+                    {
+                        <tr class="text-center">
+                            <th scope="row">@insumo.InsumoId</th>
+                            <td>@insumo.Nombre</td>
+                            
+                            @if (insumo.Estado)
+                            {
+                                <td><span class="btn btn-primary">Habilitado</span></td> }
+                            else
+                            {
+                                <td><span class="btn btn-danger">Deshabilitado</span></td>}
+                            <td>
+                                <a class="btn btn-success" href="javascript:mostrarModal('@Url.Action("Editar","Insumos",new{id=insumo.InsumoId},Context.Request.Scheme)','Editar insumo')"><i title="Editar" class="fas fa-edit"></i></a>
+                                <a class="btn btn-secondary" href="javascript:mostrarModal('@Url.Action("Detalle","Insumos",new{id=insumo.InsumoId},Context.Request.Scheme)','Detalle del insumo')"><i class="fas fa-sticky-note"></i></a>
+                                <a class="btn btn-danger" href="javascript:Eliminar('@Url.Action("Eliminar", "Insumos",new{id=insumo.InsumoId},Context.Request.Scheme)', 'Insumo', '¿Desea eliminar el insumo?')"><i title="Eliminar" class="fas fa-trash-alt"></i></a>
+
+                                @if (insumo.Estado)
+                                {
+                                    <a class="btn btn-danger" href="javascript:cambiarEstado('@Url.Action("CambiarEstado","Insumos",new{id=insumo.InsumoId},Context.Request.Scheme)','Insumo', '¿Desea cambiar  el estado del insumo?')" )"><i title="Deshabilitar insumo" class="fas fa-unlock"></i></a> }
+                                else
+                                {
+                                    <a class="btn btn-primary" href="javascript:cambiarEstado('@Url.Action("CambiarEstado","Insumos",new{id=insumo.InsumoId},Context.Request.Scheme)','Insumo', '¿Desea cambiar  el estado del insumo?')" )"><i title="Habilitar insumo" class="fas fa-lock"></i></a>}
+
+                            </td>
+
+                        </tr>
+                     }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@section Scripts
+
+{
+    <script src="~/js/tabla.js"></script>
+    <script src="~/js/site.js"></script>
+} 

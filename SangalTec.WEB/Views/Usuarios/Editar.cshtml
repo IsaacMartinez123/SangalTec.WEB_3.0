@@ -1,0 +1,28 @@
+﻿@model SangalTec.Bunsiness.Dtos.EditarDto
+
+@{ Layout = null; }
+
+
+<form asp-action="Editar" autocomplete="on" id="formulario" onsubmit="return jQueryAjaxPost(this,'Editar usuario', '¿Desea editar el usuario?');">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="Email" class="crontrol-label"></label>
+        <input asp-for="Email" class="form-control">
+
+    </div>
+    <span asp-validation-for="Email" class="text-danger error"></span>
+
+    <div class="form-group">
+        <label asp-for="NumeroCelular" class="crontrol-label"></label>
+        <input asp-for="NumeroCelular" class="form-control">
+
+    </div>
+    <span asp-validation-for="NumeroCelular" class="text-danger error"></span>
+
+    <button type="submit" class="btn btn-primary btn-block">Editar</button>
+</form>
+<script src="~/js/site.js"></script>
+@await Html.PartialAsync("_ValidationScriptsPartial")

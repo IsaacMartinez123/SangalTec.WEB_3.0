@@ -1,0 +1,46 @@
+﻿@model SangalTec.Models.Entities.Proveedor
+
+@{ Layout = null; }
+
+
+
+<form id="formulario" asp-action="Editar" autocomplete="on" onsubmit="return jQueryAjaxPost(this,'Editar proveedor', '¿Desea editar el proveedor?');">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="ProveedorId" />
+    <input type="hidden" asp-for="Estado" />
+    <div class="form-group">
+        <label asp-for="Nombres" class="crontrol-label"></label>
+        <input asp-for="Nombres" class="form-control" placeholder="Ingrese el nombre del proveedor" />
+        <span asp-validation-for="Nombres" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Correo" class="crontrol-label"></label>
+        <input asp-for="Correo" class="form-control" placeholder="Ingrese el correo del proveedor" />
+        <span asp-validation-for="Correo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Telefono" class="crontrol-label"></label>
+        <input asp-for="Telefono" class="form-control" placeholder="Ingrese el teléfono del proveedor" />
+        <span asp-validation-for="Telefono" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="InsumoId" class="control-label"></label>
+        <select asp-items="@ViewBag.Insumos" asp-for="InsumoId" class="form-control">
+            <option>--- Seleccione ---</option>
+        </select>
+        <span asp-validation-for="InsumoId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group ">
+        <div class="row">
+            <div class="col">
+                <input type="submit" value="Editar" class="btn btn-primary form-control" />
+            </div>
+
+        </div>
+    </div>
+</form>
+
+<script src="~/js/site.js"></script>
+
+@{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}

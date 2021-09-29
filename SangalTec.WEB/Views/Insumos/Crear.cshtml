@@ -1,0 +1,23 @@
+﻿@model SangalTec.Models.Entities.Insumo
+
+@{ Layout = null; }
+
+
+<form id="formulario" asp-action="Crear" autocomplete="on" onsubmit="return jQueryAjaxPost(this,'Crear insumo', '¿Desea Crear el insumo?');">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Nombre" class="crontrol-label"></label>
+        <input asp-for="Nombre" class="form-control" placeholder="Ingrese el nombre del insumo" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col">
+                <button type="submit" class="btn btn-primary form-control" id="submit-all"> Crear</button>
+            </div>
+
+        </div>
+    </div>
+</form>
+<script src="~/js/site.js"></script>
+@{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}

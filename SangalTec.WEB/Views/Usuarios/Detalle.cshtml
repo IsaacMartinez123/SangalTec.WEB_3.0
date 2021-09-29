@@ -1,0 +1,33 @@
+﻿@model SangalTec.Bunsiness.Dtos.EditarDto
+@{
+    Layout = null;
+}
+
+<form>
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <div class="col-md-12">
+            <label asp-for="Id" class="control-label"></label>
+            <br />
+            @Model.Id
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-12">
+            <label asp-for="Email" class="control-label"></label>
+            <br />
+            @Model.Email
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-12">
+            <label asp-for="NumeroCelular" class="control-label"></label>
+            <br />
+            @Model.NumeroCelular
+        </div>
+    </div>
+
+</form>
+<script src="~/js/site.js"></script>
+@await Html.PartialAsync("_ValidationScriptsPartial")

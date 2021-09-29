@@ -1,0 +1,73 @@
+﻿@model IEnumerable<SangalTec.Models.Entities.Producto>
+
+@section Styles{}
+
+
+
+<div class="content pt-5">
+    <div class="container-fluid ">
+        <div class="row  mb-5">
+            <div class="col-6">
+                <h2 class="text-primary">@ViewBag.Titulo</h2>
+            </div>
+            <div class="col-6 text-right">
+                <a onclick="mostrarModal('@Url.Action("Crear","Productos",null,Context.Request.Scheme)','Crear producto')" class="btn btn-success"> Crear nuevo Producto</a>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+
+            <table class="table table-striped" id="tabla">
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col" class="text-center">@Html.DisplayNameFor(model => model.ProductoId)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.Nombre)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.CategoriaId)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.Estado)</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var producto in Model)
+                    {
+                        <tr class="text-center">
+                            <th scope="row">@producto.ProductoId</th>
+                            <td>@producto.Nombre</td>
+                            <td>@producto.Categoria.Nombre</td>
+                            @if (producto.Estado)
+                            {
+                                 <td><span class="btn btn-primary">Habilitado</span></td>
+                            }
+                           else
+                            {
+                           <td><span class="btn btn-danger">Deshabilitado</span></td>
+                            }
+                           <td>
+                                <a class="btn btn-success" href="javascript:mostrarModal('@Url.Action("Editar","Productos",new{id=producto.ProductoId},Context.Request.Scheme)','Editar Producto')"><i title="Editar" class="fas fa-edit"></i></a>
+                                <a class="btn btn-secondary" href="javascript:mostrarModal('@Url.Action("Detalle","Productos",new{id=producto.ProductoId},Context.Request.Scheme)','Detalle del producto')"><i class="fas fa-sticky-note"></i></a>
+                                <a class="btn btn-danger" href="javascript:Eliminar('@Url.Action("Eliminar", "Productos",new{id=producto.ProductoId},Context.Request.Scheme)', 'Producto', '¿Desea eliminar el producto?')"><i title="Eliminar" class="fas fa-trash-alt"></i></a>
+
+                                @if (producto.Estado)
+                                {
+                                    <a class="btn btn-danger" href="javascript:cambiarEstado('@Url.Action("CambiarEstado","Productos",new{id=producto.ProductoId},Context.Request.Scheme)','Producto', '¿Desea cambiar  el estado del producto?')" )"><i title="Deshabilitar producto" class="fas fa-unlock"></i></a> 
+                                }
+                                else
+                                {
+                                    <a class="btn btn-primary" href="javascript:cambiarEstado('@Url.Action("CambiarEstado","Productos",new{id=producto.ProductoId},Context.Request.Scheme)','Producto', '¿Desea cambiar  el estado del producto?')" )"><i title="Habilitar producto" class="fas fa-lock"></i></a>
+                                }
+
+                           </td>
+                     </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script src="~/js/tabla.js"></script>
+    <script src="~/js/site.js"></script>
+}

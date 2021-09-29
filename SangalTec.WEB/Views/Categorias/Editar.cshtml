@@ -1,0 +1,23 @@
+﻿@model SangalTec.Models.Entities.Categoria
+
+@{ Layout = null; }
+
+
+<form id="formulario" asp-action="Editar" autocomplete="on" onsubmit="return jQueryAjaxPost(this,'Editar categoría', '¿Desea editar la categoría?');">
+    <input type="hidden" asp-for="CategoriaId"/>
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Nombre" class="crontrol-label"></label>
+        <input asp-for="Nombre" class="form-control" placeholder="Ingrese el nombre de la categoría" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col">
+                <button type="submit" class="btn btn-primary form-control" id="submit-all"> Editar</button>
+            </div>
+
+        </div>
+    </div>
+</form>
+<script src="~/js/site.js"></script>

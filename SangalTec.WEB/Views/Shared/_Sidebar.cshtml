@@ -1,0 +1,120 @@
+﻿<!-- Main Sidebar Container -->
+
+<aside class="main-sidebar sidebar-dark-primary elevation-4 ">
+
+    <!-- Brand Logo -->
+    <a asp-controller="Admin" asp-action="Dashboard" class="brand-link">
+        <img src="~/adminlte/dist/img/logosangal2.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+
+        <span class="brand-text font-weight-light"><b> SangalTec </b></span>
+    </a>
+
+    <br />
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <!-- Sidebar Menu Usuarios -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                with font-awesome or any other icon font library -->
+
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" style="" >
+                        <i class="fas fa-user-friends"></i>
+                        <p>
+                            <b>Usuarios</b>
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+
+                        <li class="nav-item">
+                            <a asp-controller="Usuarios" asp-action="Index" class="nav-link" style="">
+                                <i class="fas fa-cogs"></i>
+                                <p>Gestionar Usuarios</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
+
+            </ul>
+        </nav>
+
+        <!-- Sidebar Menu Productos -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                with font-awesome or any other icon font library -->
+
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" style="color:black">
+                        <i class="fab fa-product-hunt"></i>
+                        <p>
+                            <b>Productos</b>
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a asp-controller="Productos" asp-action="Index" class="nav-link" style="color:black">
+                                <i class="fas fa-cogs"></i>
+                                <p>Gestionar Productos</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Categorias" asp-action="Index" class="nav-link" style="color:black">
+                                <i class="fas fa-cogs"></i>
+                                <p>Gestionar Categorías</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+            </ul>
+        </nav>
+
+        <!-- Sidebar Menu Porvedores -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                with font-awesome or any other icon font library -->
+
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" style="color:black">
+                        <i class="fas fa-parachute-box"></i>
+                        <p>
+                            <b>Proveedores</b>
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a asp-controller="Proveedores" asp-action="Index" class="nav-link" style="color:black">
+                                <i class="fas fa-cogs"></i>
+                                <p>Gestionar Proveedores</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Insumos" asp-action="Index" class="nav-link" style="color:black">
+                                <i class="fas fa-cogs"></i>
+                                <p>Gestionar Insumos</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>

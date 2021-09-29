@@ -1,0 +1,46 @@
+﻿@model SangalTec.Bunsiness.Dtos.RegistrarUsuarioDto
+@{
+    Layout = null;
+}
+@section Styles{
+
+}
+
+<form asp-action="Crear" autocomplete="on" id="formulario" onsubmit="return jQueryAjaxPost(this,'Registrar usuario', '¿Desea registrar el usuario?');">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Email" class="crontrol-label"></label>
+        <input asp-for="Email" class="form-control">
+
+    </div>
+    <span asp-validation-for="Email" class="text-danger error"></span>
+
+    <div class="form-group">
+        <label asp-for="NumeroCelular" class="crontrol-label"></label>
+        <input asp-for="NumeroCelular" class="form-control">
+       
+    </div>
+    <span asp-validation-for="NumeroCelular" class="text-danger error"></span>
+
+    <div class="form-group">
+        <label asp-for="Password" class="crontrol-label"></label>
+        <input asp-for="Password" class="form-control">
+
+    </div>
+    <span asp-validation-for="Password" class="text-danger error"></span>
+
+    <div class="form-group">
+        <label asp-for="ConfirmarPassword" class="crontrol-label"></label>
+        <input asp-for="ConfirmarPassword" class="form-control">
+        
+    </div>
+    <span asp-validation-for="Email" class="text-danger error"></span>
+        <!-- /.col -->
+
+            <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+       
+        <!-- /.col -->
+</form>
+<script src="~/js/site.js"></script>
+@await Html.PartialAsync("_ValidationScriptsPartial")
