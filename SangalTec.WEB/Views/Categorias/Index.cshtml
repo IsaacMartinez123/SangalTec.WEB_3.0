@@ -6,10 +6,15 @@
 <div class="content pt-5">
     <div class="container-fluid ">
         <div class="row  mb-5">
+            <br />
             <div class="col-6">
-                <h2 class="text-primary">@ViewBag.Titulo</h2>
+                <h2 style="text-align:right"> <img src="~/iconos/categoria.png" />    <b>@ViewBag.Titulo</b>
+                </h2>
             </div>
             <div class="col-6 text-right">
+                <br />
+                <br />
+                <br />
                 <a onclick="mostrarModal('@Url.Action("Crear","Categorias",null,Context.Request.Scheme)','Crear categoria')" class="btn btn-success"> Crear nueva Categoría</a>
             </div>
         </div>

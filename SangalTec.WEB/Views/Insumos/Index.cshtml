@@ -7,10 +7,15 @@
 <div class="content pt-5">
     <div class="container-fluid ">
         <div class="row  mb-5">
+            <br />
             <div class="col-6">
-                <h2 class="text-primary">@ViewBag.Titulo</h2>
+                <h2 style="text-align:right"> <img src="~/iconos/insumo.png" width="85" height="85" />       <b>@ViewBag.Titulo</b>
+                </h2>
             </div>
             <div class="col-6 text-right">
+                <br />
+                <br />
+                <br />
                 <a onclick="mostrarModal('@Url.Action("Crear","Insumos",null,Context.Request.Scheme)','Crear insumo')" class="btn btn-success"> Crear nuevo insumo</a>
             </div>
         </div>
@@ -35,10 +40,10 @@
                             
                             @if (insumo.Estado)
                             {
-                                <td><span class="btn btn-primary">Habilitado</span></td> }
+                                <td><span class="btn btn-primary">Disponible</span></td> }
                             else
                             {
-                                <td><span class="btn btn-danger">Deshabilitado</span></td>}
+                                <td><span class="btn btn-danger">No Disponible</span></td>}
                             <td>
                                 <a class="btn btn-success" href="javascript:mostrarModal('@Url.Action("Editar","Insumos",new{id=insumo.InsumoId},Context.Request.Scheme)','Editar insumo')"><i title="Editar" class="fas fa-edit"></i></a>
                                 <a class="btn btn-secondary" href="javascript:mostrarModal('@Url.Action("Detalle","Insumos",new{id=insumo.InsumoId},Context.Request.Scheme)','Detalle del insumo')"><i class="fas fa-sticky-note"></i></a>

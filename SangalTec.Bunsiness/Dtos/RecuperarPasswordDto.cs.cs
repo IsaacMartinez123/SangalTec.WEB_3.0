@@ -10,7 +10,10 @@ namespace SangalTec.Bunsiness.Dtos
     public class RecuperarPasswordDto
     {
         [Required(ErrorMessage = "El email es requerido")]
-        [EmailAddress(ErrorMessage = "Email inválido")]
+        [Display(Name = "Email", Order = -9,
+        Prompt = "Ingrese el email", Description = "Email")]
+        [EmailAddress(ErrorMessage = "Email")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
     }
 }

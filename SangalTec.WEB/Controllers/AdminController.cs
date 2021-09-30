@@ -12,9 +12,5 @@ namespace SangalTec.WEB.Controllers
         {
             return View();
         }
-        public IActionResult NoAutorizado()
-        {
-            return View();
-        }
     }
 }

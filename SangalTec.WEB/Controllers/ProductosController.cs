@@ -17,12 +17,9 @@ namespace SangalTec.WEB.Controllers
         private readonly IProductoBunsiness _IProductoBunsiness;
         private readonly ICategoriaBunsiness _ICategoriaBunsiness;
 
-        private readonly IWebHostEnvironment _hostingEnvironment;
-
-        public ProductosController(IProductoBunsiness ProductoBunsiness, ICategoriaBunsiness ICategoriaBunsiness, IWebHostEnvironment hostingEnvironment)
+        public ProductosController(IProductoBunsiness ProductoBunsiness, ICategoriaBunsiness ICategoriaBunsiness)
         {
             _IProductoBunsiness = ProductoBunsiness;
-            _hostingEnvironment = hostingEnvironment;
             _ICategoriaBunsiness = ICategoriaBunsiness;
         }
 
@@ -42,7 +39,6 @@ namespace SangalTec.WEB.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Crear(Producto producto)
         {
             if (ModelState.IsValid)

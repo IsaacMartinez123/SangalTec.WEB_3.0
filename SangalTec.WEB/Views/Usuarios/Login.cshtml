@@ -1,17 +1,17 @@
 ﻿@model SangalTec.Bunsiness.Dtos.LoginDto
-<!DOCTYPE html>
 @{
     Layout = null;
 }
 
 
+<!DOCTYPE html>
 
 <html lang="es">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Log in (v2)</title>
+    <title>SangalTec Iniciar Sesion</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -20,54 +20,64 @@
     <!-- icheck bootstrap -->
     <link rel="stylesheet" href="~/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="~/adminlte/dist/css/adminlte.min.css"> 
 
-    <link href="~/css/diseño.css" rel="stylesheet" />
+
+    <link href="~/css/login.css" rel="stylesheet" />
+
 </head>
 
-<body class="hold-transition login-page">
-    <div class="login-box">
-        <!-- /.login-logo -->
-        <div class="card card-outline card-primary">
-            <div class="card-header text-center">
-                <a class="h1" asp-controller="Admin" asp-action="Dashboard"><b>SangalTec</b></a>
-            </div>
-            <div class="card-body">
-                <p class="login-box-msg">Iniciar sesión</p>
 
-                <form asp-action="Login" asp-controller="Usuarios">
-                    <div class="input-group mb-3">
-                        <input asp-for="Email" class="form-control" placeholder="Email">
+<body>
+    <div class="login">
+        <div class="login-screen">
+
+            <a asp-controller="Admin" asp-action="Dashboard">
+                <div class="app-title">
+                    <img src="~/adminlte/dist/img/logosangal2.png" alt="Alternate Text" width="150" height="150" />
+                </div>
+            </a>
+
+            <form asp-action="Login" asp-controller="Usuarios" class="form">
+                <div class="login-form">
+                    <div class="contenedor-form">
+                        <input id="login-name" asp-for="Email" class="login-field" placeholder="Email">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
                             </div>
                         </div>
-                        <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
-                    <div class="input-group mb-3">
-                        <input asp-for="Password" class="form-control" placeholder="Password">
+
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="login-form">
+                    <div class="contenedor-form">
+                        <input id="login-pass" asp-for="Password" class="login-field" placeholder="Password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
                             </div>
                         </div>
-                        <span asp-validation-for="Password" class="text-danger"></span>
-                    </div>
 
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
                     </div>
-
-                </form>
-                <br />
-                <div class="col-12">
-                    <a content asp-action="OlvidePassword" class="btn btn-secondary btn-block"> Olvidé contraseña </a>
+                    <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
-            </div>
-            <!-- /.card-body -->
+
+
+                <div class="boton">
+                    <div class="">
+                        <button type="submit" class="btn btn-primary btn-large btn-block boton-form boton-iniciarSesion">Iniciar sesión</button>
+                    </div>
+                    <br />
+                    <div class="">
+                        <a style="text-align:center" content asp-action="OlvidePassword" class="btn btn-secondary btn-block boton-form boton-recorContraseña"> Olvide contraseña </a>
+                    </div>
+                </div>
+
+            </form>
+
         </div>
-        <!-- /.card -->
     </div>
 
     <!-- /.login-box -->
@@ -75,8 +85,7 @@
     <script src="~/adminlte/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="~/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="~/adminlte/dist/js/adminlte.min.js"></script>
+
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
 </body>

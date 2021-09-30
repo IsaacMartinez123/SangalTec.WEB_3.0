@@ -7,10 +7,15 @@
 <div class="content pt-5">
     <div class="container-fluid ">
         <div class="row  mb-5">
+            <br />
             <div class="col-6">
-                <h2 class="text-primary">@ViewBag.Titulo</h2>
+                <h2 style="text-align:right"> <img src="~/iconos/producto.png" />   <b>@ViewBag.Titulo</b>
+                </h2>
             </div>
             <div class="col-6 text-right">
+                <br />
+                <br />
+                <br />
                 <a onclick="mostrarModal('@Url.Action("Crear","Productos",null,Context.Request.Scheme)','Crear producto')" class="btn btn-success"> Crear nuevo Producto</a>
             </div>
         </div>
@@ -36,11 +41,11 @@
                             <td>@producto.Categoria.Nombre</td>
                             @if (producto.Estado)
                             {
-                                 <td><span class="btn btn-primary">Habilitado</span></td>
+                                 <td><span class="btn btn-primary">Disponible</span></td>
                             }
                            else
                             {
-                           <td><span class="btn btn-danger">Deshabilitado</span></td>
+                           <td><span class="btn btn-danger">No Disponible</span></td>
                             }
                            <td>
                                 <a class="btn btn-success" href="javascript:mostrarModal('@Url.Action("Editar","Productos",new{id=producto.ProductoId},Context.Request.Scheme)','Editar Producto')"><i title="Editar" class="fas fa-edit"></i></a>

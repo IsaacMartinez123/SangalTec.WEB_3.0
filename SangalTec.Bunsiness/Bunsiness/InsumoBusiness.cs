@@ -45,7 +45,7 @@ namespace SangalTec.Bunsiness.Bunsiness
         {
             if(insumo == null)
                 throw new ArgumentNullException(nameof(insumo));
-
+            insumo.Estado = true;
             _context.Update(insumo);
         }
 

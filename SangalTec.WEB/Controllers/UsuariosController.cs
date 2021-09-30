@@ -67,7 +67,7 @@ namespace SangalTec.WEB.Controllers
                         return Json(new { isValid = false, tipoError = "danger", error = "Error al crear el usuario" });
                     }
                 }
-
+                return Json(new { isValid = false, tipoError = "danger", error = "Error al crear el usuario" });
             }
 
             return Json(new { isValid = false, tipoError = "warning", error = "Debe diligenciar los campos requeridos", html = Helper.RenderRazorViewToString(this, "Crear", registrarUsuario) });
@@ -106,6 +106,7 @@ namespace SangalTec.WEB.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> Login(LoginDto loginDto)
         {
@@ -255,8 +256,6 @@ namespace SangalTec.WEB.Controllers
                 }
             }
             ViewBag.Titulo = "Editar usuario";
-
-
             return Json(new { isValid = false, tipoError = "warning", error = "Debe diligenciar los campos requeridos", html = Helper.RenderRazorViewToString(this, "Editar", editarDto) });
         }
 

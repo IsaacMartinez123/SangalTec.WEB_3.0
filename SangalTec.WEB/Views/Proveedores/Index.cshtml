@@ -7,10 +7,16 @@
 <div class="content pt-5">
     <div class="container-fluid ">
         <div class="row  mb-5">
+            <br />
             <div class="col-6">
-                <h2 class="text-primary">@ViewBag.Titulo</h2>
+                <h2 style="text-align:right"> <img src="~/iconos/proveedor.png" />   <b>@ViewBag.Titulo</b>
+                </h2>
             </div>
+            
             <div class="col-6 text-right">
+                <br />
+                <br />
+                <br />
                 <a onclick="mostrarModal('@Url.Action("Crear","Proveedores",null,Context.Request.Scheme)','Crear proveedor')" class="btn btn-success"> Crear nuevo proveedor</a>
             </div>
         </div>
@@ -36,11 +42,11 @@
                             <td>@proveedor.Insumo.Nombre</td>
                             @if (proveedor.Estado)
                             {
-                                <td><span class="btn btn-primary">Habilitado</span></td>
+                                <td><span class="btn btn-primary">Disponible</span></td>
                             }
                             else
                             {
-                                <td><span class="btn btn-danger">Deshabilitado</span></td>
+                                <td><span class="btn btn-danger">No Disponible</span></td>
                             }
                             <td>
                                 <a class="btn btn-success" href="javascript:mostrarModal('@Url.Action("Editar","Proveedores",new{id=proveedor.ProveedorId},Context.Request.Scheme)','Editar proveedor')"><i title="Editar" class="fas fa-edit"></i></a>

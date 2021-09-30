@@ -15,13 +15,12 @@ namespace SangalTec.Bunsiness.Bunsiness
 {
     public class UsuarioBunsiness : IUsuarioBunsiness
     {
-        private readonly Microsoft.AspNetCore.Identity.UserManager<Usuario> _userManager;
-        private readonly SangalDbContext _sangalDbContext;
+        private readonly UserManager<Usuario> _userManager;
 
-        public UsuarioBunsiness(UserManager<Usuario> userManager, SangalDbContext sangalDbContext)
+        public UsuarioBunsiness(UserManager<Usuario> userManager)
         {
             _userManager = userManager;
-            _sangalDbContext = sangalDbContext;
+            
         }
 
         public async Task<UsuarioDto> ObtenerUsuarioDtoPorEmail(string email)
